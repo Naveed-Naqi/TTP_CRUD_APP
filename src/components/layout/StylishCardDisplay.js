@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -29,44 +29,50 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function StylishCardDisplay() {
-  const classes = useStyles();
+export default function StylishCardDisplay({likeCard}) {
+    const classes = useStyles();
 
-  return (
-    <Card className={classes.card}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
-      <CardMedia
-        className={classes.media}
-        image={require('./img1.jpg')}
-        title="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-      </CardActions>
-    </Card>
-  );
+    const [likedStatus, setLikedStatus] = useState(false);
+
+    return (
+        <Card className={classes.card}>
+        <CardHeader
+            avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+                R
+            </Avatar>
+            }
+            action={
+            <IconButton aria-label="settings">
+                <MoreVertIcon />
+            </IconButton>
+            }
+            title={likedStatus}
+            subheader="September 14, 2016"
+        />
+        <CardMedia
+            className={classes.media}
+            image={require('./img1.jpg')}
+            title="Paella dish"
+        />
+        <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+            This impressive paella is a perfect party dish and a fun meal to cook together with your
+            guests. Add 1 cup of frozen peas along with the mussels, if you like.
+            </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+            <IconButton 
+                aria-label="add to favorites" 
+                style={{color: likedStatus ? "red" : "gray"}}
+                onClick={() => setLikedStatus(!likedStatus)}
+            >
+            <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="share">
+            <ShareIcon />
+            </IconButton>
+        </CardActions>
+        </Card>
+    );
 }
