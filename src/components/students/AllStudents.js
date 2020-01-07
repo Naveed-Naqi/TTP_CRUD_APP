@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import StylishCardDisplay from "../layout/StylishCardDisplay";
-import { Button } from '@material-ui/core';
+import AddStudentModal from './AddStudentModal';
 
 export default class AllStudents extends Component {
     render() {
@@ -9,13 +9,7 @@ export default class AllStudents extends Component {
                 <div>
                     <h1>Welcome to All Students View </h1>
 
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                    >
-                    DECREMENT
-                    </Button>
+                    <AddStudentModal></AddStudentModal>
                 </div>
 
                 <StylishCardDisplay></StylishCardDisplay>
