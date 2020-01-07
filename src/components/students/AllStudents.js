@@ -1,29 +1,32 @@
 import React, { Component } from 'react'
-import SingleCardDisplay from '../layout/SingleCardDisplay'
+import StylishCardDisplay from "../layout/StylishCardDisplay";
+import { Button } from '@material-ui/core';
 
 export default class AllStudents extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to All Students View </h1>
+                <div>
+                    <h1>Welcome to All Students View </h1>
 
-                <SingleCardDisplay 
-                    phoneNumber="646-309-5663"
-                    name="Naveed Naqi"
-                    email="nnaqi5534@gmail.com"
-                ></SingleCardDisplay>
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                    >
+                    DECREMENT
+                    </Button>
+                </div>
 
-                <SingleCardDisplay 
-                    phoneNumber="646-267-6197"
-                    name="Bushra Naqi"
-                    email="nnaqi5534@bths.edu"
-                ></SingleCardDisplay>
+                <StylishCardDisplay></StylishCardDisplay>
+                <StylishCardDisplay></StylishCardDisplay>
+                <StylishCardDisplay></StylishCardDisplay>
+                <StylishCardDisplay></StylishCardDisplay>
+                <StylishCardDisplay></StylishCardDisplay>
+                <StylishCardDisplay></StylishCardDisplay>
+                <StylishCardDisplay></StylishCardDisplay>
+                <StylishCardDisplay></StylishCardDisplay>
 
-                <SingleCardDisplay 
-                    phoneNumber="646-918-6192"
-                    name="Ali Naqi"
-                    email="naveed.naqi30@myhunter.cuny.edu"
-                ></SingleCardDisplay>
             </div>
         )
     }
