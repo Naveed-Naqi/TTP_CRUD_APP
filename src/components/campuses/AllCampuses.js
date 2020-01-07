@@ -5,10 +5,6 @@ import AddCampusModal from './AddCampusModal';
 
 export default class AllCampuses extends Component {
 
-    likeCard = (isLiked) => {
-        return !isLiked;
-    }
-
     render() {
         return (
             <div>
@@ -19,7 +15,7 @@ export default class AllCampuses extends Component {
 
                 <AddCampusModal></AddCampusModal>
 
-                <StylishCardDisplay likeCard={this.likeCard}></StylishCardDisplay>
+                <StylishCardDisplay></StylishCardDisplay>
                 <StylishCardDisplay></StylishCardDisplay>
                 <StylishCardDisplay></StylishCardDisplay>
                 <StylishCardDisplay></StylishCardDisplay>

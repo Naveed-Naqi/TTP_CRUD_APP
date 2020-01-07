@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import StylishCardMenu from "./StylishCardMenu";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function StylishCardDisplay({likeCard}) {
+export default function StylishCardDisplay() {
     const classes = useStyles();
 
     const [likedStatus, setLikedStatus] = useState(false);
@@ -38,16 +38,14 @@ export default function StylishCardDisplay({likeCard}) {
         <Card className={classes.card}>
         <CardHeader
             avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-                R
-            </Avatar>
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                    R
+                </Avatar>
             }
             action={
-            <IconButton aria-label="settings">
-                <MoreVertIcon />
-            </IconButton>
+                <StylishCardMenu></StylishCardMenu>
             }
-            title={likedStatus}
+            title="Sample Card"
             subheader="September 14, 2016"
         />
         <CardMedia
