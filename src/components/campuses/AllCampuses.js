@@ -7,7 +7,7 @@ export default class AllCampuses extends Component {
         return (
             <div>
                 <h1>Welcome to the All Campuses View</h1>
-                
+
                 <SingleCardDisplay 
                     phoneNumber="646-309-5663"
                     name="Naveed Naqi"
@@ -25,6 +25,7 @@ export default class AllCampuses extends Component {
                     name="Ali Naqi"
                     email="naveed.naqi30@myhunter.cuny.edu"
                 ></SingleCardDisplay>
+                
             </div>
         )
     }
