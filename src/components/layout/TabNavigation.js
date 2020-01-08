@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NavTabs() {
+const NavTabs = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -68,23 +68,28 @@ export default function NavTabs() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Tabs
-          variant="fullWidth"
-          value={value}
-          onChange={handleChange}
-          aria-label="nav tabs example"
-        >
-          <LinkTab label="All Students" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="All Campuses" href="/trash" {...a11yProps(1)} />
-        </Tabs>
-      </AppBar>
-      <TabPanel value={value} index={0}>
-        <AllStudents></AllStudents>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <AllCampuses></AllCampuses>
-      </TabPanel>
+    
+        <AppBar position="static">
+            <Tabs
+                variant="fullWidth"
+                value={value}
+                onChange={handleChange}
+                aria-label="nav tabs example"
+            >
+                <LinkTab label="All Students" href="/drafts" {...a11yProps(0)} />
+                <LinkTab label="All Campuses" href="/trash" {...a11yProps(1)} />
+            </Tabs>
+        </AppBar>
+
+        <TabPanel value={value} index={0}>
+            <AllStudents></AllStudents>
+        </TabPanel>
+
+        <TabPanel value={value} index={1}>
+            <AllCampuses></AllCampuses>
+        </TabPanel>
     </div>
   );
 }
+
+export default NavTabs;
