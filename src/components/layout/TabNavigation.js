@@ -10,86 +10,87 @@ import AllCampuses from "../campuses/AllCampuses";
 import AllStudents from "../students/AllStudents";
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+    const { children, value, index, ...other } = props;
 
-  return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`nav-tabpanel-${index}`}
-      aria-labelledby={`nav-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box p={3}>{children}</Box>}
-    </Typography>
-  );
+    return (
+        <Typography
+            component="div"
+            role="tabpanel"
+            hidden={value !== index}
+            id={`nav-tabpanel-${index}`}
+            aria-labelledby={`nav-tab-${index}`}
+            {...other}
+        >
+            {value === index && <Box p={3}>{children}</Box>}
+        </Typography>
+    );
 }
 
 TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
+    children: PropTypes.node,
+    index: PropTypes.any.isRequired,
+    value: PropTypes.any.isRequired,
 };
 
 function a11yProps(index) {
-  return {
-    id: `nav-tab-${index}`,
-    'aria-controls': `nav-tabpanel-${index}`,
-  };
+    return {
+        id: `nav-tab-${index}`,
+        'aria-controls': `nav-tabpanel-${index}`,
+    };
 }
 
 function LinkTab(props) {
-  return (
-    <Tab
-      component="a"
-      onClick={event => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
-  );
+    return (
+        <Tab
+            component="a"
+            onClick={event => {
+                event.preventDefault();
+            }}
+            {...props}
+        />
+    );
 }
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
+    root: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.paper,
+    },
 }));
 
-const NavTabs = () => {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <div className={classes.root}>
+const TabNavigation = () => {
     
-        <AppBar position="static">
-            <Tabs
-                variant="fullWidth"
-                value={value}
-                onChange={handleChange}
-                aria-label="nav tabs example"
-            >
-                <LinkTab label="All Students" href="/drafts" {...a11yProps(0)} />
-                <LinkTab label="All Campuses" href="/trash" {...a11yProps(1)} />
-            </Tabs>
-        </AppBar>
+    const classes = useStyles();
+    const [value, setValue] = React.useState(0);
 
-        <TabPanel value={value} index={0}>
-            <AllStudents></AllStudents>
-        </TabPanel>
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
-        <TabPanel value={value} index={1}>
-            <AllCampuses></AllCampuses>
-        </TabPanel>
-    </div>
-  );
+    return (
+        <div className={classes.root}>
+        
+            <AppBar position="static">
+                <Tabs
+                    variant="fullWidth"
+                    value={value}
+                    onChange={handleChange}
+                    aria-label="nav tabs example"
+                >
+                    <LinkTab label="All Students" href="/drafts" {...a11yProps(0)} />
+                    <LinkTab label="All Campuses" href="/trash" {...a11yProps(1)} />
+                </Tabs>
+            </AppBar>
+
+            <TabPanel value={value} index={0}>
+                <AllStudents></AllStudents>
+            </TabPanel>
+
+            <TabPanel value={value} index={1}>
+                <AllCampuses></AllCampuses>
+            </TabPanel>
+        </div>
+    );
 }
 
-export default NavTabs;
+export default TabNavigation;

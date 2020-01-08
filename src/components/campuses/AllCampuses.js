@@ -3,7 +3,16 @@ import "./campuses.css";
 import StylishCardDisplay from "../layout/StylishCardDisplay";
 import AddCampusModal from './AddCampusModal';
 
-const campusIds = [1, 2, 3, 4, 5, 6, 7, 8];
+const campusIds = [
+    "Campus 1", 
+    "Campus 2", 
+    "Campus 3", 
+    "Campus 4", 
+    "Campus 5", 
+    "Campus 6", 
+    "Campus 7", 
+    "Campus 8"
+];
 
 export default class AllCampuses extends Component {
 
@@ -18,7 +27,7 @@ export default class AllCampuses extends Component {
                 <AddCampusModal></AddCampusModal>
 
                 {campusIds.map( (elem) => {
-                    return <StylishCardDisplay id={elem}></StylishCardDisplay>
+                    return <StylishCardDisplay id={elem} variant="campuses" ></StylishCardDisplay>
                 })}
                 
             </div>
