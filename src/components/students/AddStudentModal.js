@@ -19,6 +19,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+/*
+FUTURE PLANS:
+    Create an AddStudentForm Component to place in the Modal.
+    When the AddStudentForm is submitted, the new data gets PUT into the database.
+    It also gets pushed into the state of AllStudents.
+    This casuses the Component to re-render so the new Student will appear on the UI and if you refresh the page,
+    it will still be there because it has been placed in the database.
+*/
+
 export default function AddStudentModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -40,7 +49,7 @@ export default function AddStudentModal() {
             color="primary"
             onClick={handleOpen}
         >
-        Add A Campus
+        Add A Student
         </Button>
 
       <Modal

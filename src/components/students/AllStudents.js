@@ -13,6 +13,13 @@ const studentIds = [
     "Student 8"
 ];
 
+/*
+FUTURE PLANS:
+    A componentDidMount pull some data from the database.
+    Probabably just the id, name, description and image of the Student.
+    This will take the place of the dummy data we currently have in studentIds.
+*/
+
 export default class AllStudents extends Component {
     render() {
         return (
@@ -24,7 +31,11 @@ export default class AllStudents extends Component {
                 </div>
 
                 {studentIds.map( (elem) => {
-                    return <StylishCardDisplay id={elem} variant="students"></StylishCardDisplay>
+                    return <StylishCardDisplay 
+                                id={elem} 
+                                variant="students"
+                                title={elem}
+                            ></StylishCardDisplay>
                 })}
 
             </div>

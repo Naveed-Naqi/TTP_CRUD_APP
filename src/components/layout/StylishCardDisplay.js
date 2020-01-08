@@ -36,7 +36,7 @@ const StylishCardDisplay = (props) => {
     const [likedStatus, setLikedStatus] = useState(false);
     let history = useHistory();
 
-    const {id, variant} = props;
+    const {id, variant, title} = props;
 
 
     return (
@@ -59,7 +59,7 @@ const StylishCardDisplay = (props) => {
      
                     </IconButton>
                 }
-                title="Sample Card"
+                title={title}
                 subheader="September 14, 2016"
             />
             <CardMedia

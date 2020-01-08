@@ -27,7 +27,11 @@ export default class AllCampuses extends Component {
                 <AddCampusModal></AddCampusModal>
 
                 {campusIds.map( (elem) => {
-                    return <StylishCardDisplay id={elem} variant="campuses" ></StylishCardDisplay>
+                    return <StylishCardDisplay 
+                                id={elem} 
+                                variant="campuses"
+                                title={elem}
+                            ></StylishCardDisplay>
                 })}
                 
             </div>

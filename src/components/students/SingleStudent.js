@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 
-// Cool if we could have some updating functionality here. So I will leave this is a Class Component.
-// Intending to make a call to our REST API using this.props.match.params.id and putting all of it into state
+/*
+FUTURE PLANS:
+    A componentDidMount pulls all data of this specific student into the state of this component.
+    
+*/
 
 export default class SingleStudent extends Component {
     render() {
