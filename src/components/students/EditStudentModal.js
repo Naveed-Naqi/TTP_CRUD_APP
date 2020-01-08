@@ -4,6 +4,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { Button } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -28,7 +30,7 @@ FUTURE PLANS:
     it will still be there because it has been placed in the database.
 */
 
-export default function AddStudentModal() {
+export default function EditStudentModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -42,16 +44,14 @@ export default function AddStudentModal() {
 
   return (
     <div>
-        <Button
-            type="button"
-            variant="contained"
-            color="primary"
-            onClick={handleOpen}
-        >
-        Add A Student
-        </Button>
 
-        <Modal
+        <IconButton 
+            aria-label="edit"
+            onClick={handleOpen}>
+            <EditIcon />
+        </IconButton>
+
+      <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
             className={classes.modal}
@@ -62,10 +62,10 @@ export default function AddStudentModal() {
             BackdropProps={{
             timeout: 500,
             }}
-        >
+      >
             <Fade in={open}>
                 <div className={classes.paper}>
-                    <h2 id="transition-modal-title">Add a Student</h2>
+                    <h2 id="transition-modal-title">Edit a Student</h2>
                 </div>
             </Fade>
       </Modal>

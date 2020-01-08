@@ -10,8 +10,9 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import EditStudentModal from "../students/EditStudentModal";
+import EditCampusModal from '../campuses/EditCampusModal';
 
 
 const useStyles = makeStyles(theme => ({
@@ -29,6 +30,18 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "red",
   },
 }));
+
+const determineEditModal = (variant) => {
+    if(variant === "students") {
+        return (
+            <EditStudentModal></EditStudentModal>
+        )
+    } else if (variant === "campuses") {
+        return (
+            <EditCampusModal></EditCampusModal>
+        )
+    }
+}
 
 const StylishCardDisplay = (props) => {
     const classes = useStyles();
@@ -90,10 +103,7 @@ const StylishCardDisplay = (props) => {
                     <FavoriteIcon />
                 </IconButton>
 
-                <IconButton aria-label="share">
-                
-                    <ShareIcon />
-                </IconButton>
+                {determineEditModal(variant)}
                 
             </CardActions>
         </Card>
