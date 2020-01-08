@@ -50,6 +50,7 @@ const StylishCardDisplay = (props) => {
     let history = useHistory();
 
     const {id, variant, title} = props;
+    const editModal = determineEditModal(variant);
 
 
     return (
@@ -94,6 +95,7 @@ const StylishCardDisplay = (props) => {
             </CardContent>
 
             <CardActions disableSpacing>
+            
                 <IconButton 
                     aria-label="add to favorites" 
                     style={{color: likedStatus ? "red" : "gray"}}
@@ -103,7 +105,7 @@ const StylishCardDisplay = (props) => {
                     <FavoriteIcon />
                 </IconButton>
 
-                {determineEditModal(variant)}
+                {editModal}
                 
             </CardActions>
         </Card>
